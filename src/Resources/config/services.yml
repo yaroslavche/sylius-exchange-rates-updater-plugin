@@ -7,3 +7,7 @@ services:
     # plugin service
     exchange_rates_updater_plugin_service:
         class: Acme\SyliusExchangeRatesUpdaterPlugin\Service\ExchangeRatesUpdater
+
+    # plugin commands
+    exchange_rates_updater_plugin_update_command:
+        class: Acme\SyliusExchangeRatesUpdaterPlugin\Command\SyliusExchangeRatesUpdateCommand

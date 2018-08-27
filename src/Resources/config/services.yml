@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    # plugin service
+    exchange_rates_updater_plugin_service:
+        class: Acme\SyliusExchangeRatesUpdaterPlugin\Service\ExchangeRatesUpdater

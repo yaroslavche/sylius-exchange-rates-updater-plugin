@@ -32,8 +32,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "Acme\\SyliusExchangeRatesUpdaterPlugin\\": "src/",
+            "Tests\\Acme\\SyliusExchangeRatesUpdaterPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

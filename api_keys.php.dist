@@ -1,0 +1,6 @@
+<?php
+
+// todo: move to config and remove this
+
+$OpenExchangeRates_ApiKey = '';
+$Fixer_ApiKey = '';

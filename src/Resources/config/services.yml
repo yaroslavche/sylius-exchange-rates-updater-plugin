@@ -7,7 +7,14 @@ services:
     # plugin service
     exchange_rates_updater_plugin_service:
         class: Acme\SyliusExchangeRatesUpdaterPlugin\Service\ExchangeRatesUpdater
+        arguments:
+            $container: '@service_container'
+
+    Acme\SyliusExchangeRatesUpdaterPlugin\Service\ExchangeRatesUpdater: '@exchange_rates_updater_plugin_service'
 
     # plugin commands
     exchange_rates_updater_plugin_update_command:
         class: Acme\SyliusExchangeRatesUpdaterPlugin\Command\SyliusExchangeRatesUpdateCommand
+
+    exchange_rates_updater_plugin_generate_command:
+        class: Acme\SyliusExchangeRatesUpdaterPlugin\Command\SyliusExchangeRatesGenerateCommand

@@ -1,5 +1,5 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "yaroslavche/sylius-exchange-rates-updater-plugin",
     "type": "sylius-plugin",
     "description": "Acme example plugin for Sylius.",
     "license": "MIT",
@@ -7,7 +7,8 @@
         "php": "^7.1",
 
         "sylius/sylius": "~1.2.3",
-        "symfony/symfony": "^3.4|^4.1"
+        "symfony/symfony": "^3.4|^4.1",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "behat/behat": "^3.4",

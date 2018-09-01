@@ -4,14 +4,16 @@ namespace Acme\SyliusExchangeRatesUpdaterPlugin\Command;
 
 use Acme\SyliusExchangeRatesUpdaterPlugin\Service\ExchangeRatesUpdater;
 
-use Symfony\Component\Console\Command\Command;
+use Acme\SyliusExchangeRatesUpdaterPlugin\Service\FixerLoader;
+use Acme\SyliusExchangeRatesUpdaterPlugin\Service\OpenExchangeRatesLoader;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class SyliusExchangeRatesUpdateCommand extends Command
+class SyliusExchangeRatesUpdateCommand extends ContainerAwareCommand
 {
     protected static $defaultName = 'sylius:exchange-rates:update';
 
@@ -30,7 +32,6 @@ class SyliusExchangeRatesUpdateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $exchangeRatesUpdaterService = new ExchangeRatesUpdater();
         $io = new SymfonyStyle($input, $output);
         $pairs = $input->getArgument('pairs');
 
@@ -41,6 +42,12 @@ class SyliusExchangeRatesUpdateCommand extends Command
         if ($input->getOption('all')) {
             $io->note('You passed an option: all');
         }
+
+        $exchangeRatesUpdaterService = new ExchangeRatesUpdater($this->getContainer());
+//        $exchangeRateLoader = new FixerLoader();
+        $exchangeRateLoader = new OpenExchangeRatesLoader();
+        $exchangeRatesUpdaterService->update($exchangeRateLoader);
+
 
         $io->success('Updated!');
     }

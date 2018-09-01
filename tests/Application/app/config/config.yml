@@ -2,6 +2,9 @@ parameters:
     locale: en_US
     secret: "Heron is the best animal in the world!"
 
+    exchange_rates_updater_plugin.fixer: ''
+    exchange_rates_updater_plugin.openexchangerates: ''
+
 imports:
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }

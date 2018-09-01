@@ -11,4 +11,3 @@
 /tests/Application/yarn.lock
 /.idea/
 .php_cs.cache
-api_keys.php

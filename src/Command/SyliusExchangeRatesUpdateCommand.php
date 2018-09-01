@@ -44,8 +44,10 @@ class SyliusExchangeRatesUpdateCommand extends ContainerAwareCommand
         }
 
         $exchangeRatesUpdaterService = new ExchangeRatesUpdater($this->getContainer());
-//        $exchangeRateLoader = new FixerLoader();
-        $exchangeRateLoader = new OpenExchangeRatesLoader();
+//        $fixerApiKey = $this->getContainer()->getParameter('exchange_rates_updater_plugin.fixer');
+//        $exchangeRateLoader = new FixerLoader(['access_key' => $fixerApiKey]);
+        $openExchangeRatesApiKey = $this->getContainer()->getParameter('exchange_rates_updater_plugin.openexchangerates');
+        $exchangeRateLoader = new OpenExchangeRatesLoader(['app_id' => $openExchangeRatesApiKey]);
         $exchangeRatesUpdaterService->update($exchangeRateLoader);
 
 

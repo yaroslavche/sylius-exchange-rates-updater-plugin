@@ -8,16 +8,16 @@ class OpenExchangeRatesLoader extends ExchangeRateLoaderInterface
 {
     private $base;
     private $rates;
+    private $appId;
 
-    public function __construct()
+    public function __construct(array $config = [])
     {
+        $this->appId = $config['app_id'] ?? '';
         $client = new Client([
             'base_uri' => 'https://openexchangerates.org/api/',
             'timeout'  => 5.0,
         ]);
-        // todo: remove this
-        require_once '../../api_keys.php';
-        $response = $client->get('latest.json', ['query' => ['app_id' => $OpenExchangeRates_ApiKey]]);
+        $response = $client->get('latest.json', ['query' => ['app_id' => $this->appId]]);
         $result = json_decode($response->getBody()->getContents());
         $this->base = $result->base ?? false;
         if ($this->base) {

@@ -18,7 +18,7 @@ composer require yaroslavche/sylius-exchange-rates-updater-plugin
 ```
 
 ### Usage
-For daily update add folowwing to crontab:
+For daily update add following to crontab:
 ```
 0 0 * * * /path_to_sylius/bin/console sylius:exchange-rates:update
 ```

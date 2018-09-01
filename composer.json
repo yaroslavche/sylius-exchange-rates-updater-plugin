@@ -1,7 +1,7 @@
 {
     "name": "yaroslavche/sylius-exchange-rates-updater-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "Sylius exchange rates update console command.",
     "license": "MIT",
     "require": {
         "php": "^7.1",

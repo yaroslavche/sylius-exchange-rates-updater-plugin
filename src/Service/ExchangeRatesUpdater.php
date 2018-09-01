@@ -54,7 +54,7 @@ class ExchangeRatesUpdater implements ContainerAwareInterface
                 $this->entityManager->persist($exchangeRate);
             }
         }
-        $entityManager->flush();
+        $this->entityManager->flush();
     }
 
     /**
